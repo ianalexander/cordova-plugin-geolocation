@@ -137,7 +137,7 @@
         return;
     }
 #endif
-    
+
     // Tell the location manager to start notifying us of location updates. We
     // first stop, and then start the updating to ensure we get at least one
     // update, even if our location did not change.
@@ -146,11 +146,9 @@
     __locationStarted = YES;
     if (enableHighAccuracy) {
         __highAccuracyEnabled = YES;
-        // Set distance filter to 5 for a high accuracy. Setting it to "kCLDistanceFilterNone" could provide a
-        // higher accuracy, but it's also just spamming the callback with useless reports which drain the battery.
-        self.locationManager.distanceFilter = 5;
-        // Set desired accuracy to Best.
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        // Set these to the highest accuracy possible!
+        self.locationManager.distanceFilter = kCLDistanceFilterNone;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     } else {
         __highAccuracyEnabled = NO;
         // TODO: Set distance filter to 10 meters? and desired accuracy to nearest ten meters? arbitrary.
