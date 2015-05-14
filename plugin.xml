@@ -82,6 +82,11 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
             <string></string>
         </config-file>
+        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+          <array>
+              <string>location</string>
+          </array>
+        </config-file>
 
     </platform>
 
